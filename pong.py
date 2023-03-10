@@ -1,6 +1,6 @@
 import turtle
 import winsound
-
+import time
 
 wn = turtle.Screen()
 wn.title("Pong by Miles Berg")
@@ -39,8 +39,8 @@ ball.shape("square")
 ball.color('white')
 ball.penup()
 ball.goto(0, 0)
-ball.dx = 5
-ball.dy = -5
+ball.dx = 9
+ball.dy = -9
 
 # Pen
 pen = turtle.Turtle()
@@ -125,3 +125,17 @@ while True:
         ball.setx(-340)
         ball.dx *= -1
         winsound.PlaySound("bounce.wav", winsound.SND_ASYNC)
+        
+    if score_a >= 5:
+        pen.goto(0, 0)
+        pen.write("Player 1 wins!", align="center", font=("Courier", 24, "bold"))
+        time.sleep(3)
+        break
+        
+    if score_b >= 5:
+        pen.goto(0, 0)
+        pen.write("Player 2 wins!", align="center", font=("Courier", 24, "bold"))
+        time.sleep(3)
+        break
+        
+quit()
